@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Curate</title>
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body onLoad="fadein()">
+
+	<div class="box">
+    	
+        <div id="phone" class="invisible">
+        <div class="phonecontent">
+        	<img src="animation.gif" id="animation">
+            </div>
+        </div>
+        
+        <div class="invisible" id="stuff">
+        	
+            <div id="enter">
+                <h1 id="logo">GLEAN</h1>
+                <h4 id="desc">The intelligent tool for a flawless feed</h4>
+                
+                <form name="joinbox" id="joinbox">
+               		<input type="text" class="wordz" value="email">
+                    <br />
+               		<input type="text" class="wordz" value="password">
+               <br />
+               
+               <input type="button" class="activebut" id="joinbutt" value="Join" onclick="letsplay()">
+               <input type="button" class="passivebut" id="loginbutt" value="Login">
+           	</form>
+            </div>
+        
+    	</div>
+        
+        
+        	<table id="tshirt" class="hidden">
+            	<tbody>
+                	<tr id="steps">
+                    	<td id="simport" class="on"><h3>1. Import</h3></td>
+                        <td id="sfilter" class="off"><h3>2. Filter</h3></td>
+                        <td id="scurate" class="off"><h3>3. Curate</h3></td>
+                        <td id="ssync" class="off"><h3>4. Sync</h3></td>
+                        <td id="squeue" class="off"><h3>5. Queue</h3></td>
+                    </tr>
+                    <tr id="bizniz">
+                    	<td id="uno" colspan="5"><h4>Your camera roll provides the raw material for you to create the ultimate feed.</h4>
+                        <br />
+                        <div id="upbutt" onClick="stageone()">+</div></td>
+                        
+                        <td id="dos" colspan="5" class="hidden"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+    </div>
+<script type="text/javascript">
+var x = document.getElementById('desc');
+var y = document.getElementById('phone');
+var z = document.getElementById('stuff');
+var a = document.getElementById('joinbox');
+var b = document.getElementById('logo');
+var c = document.getElementById('tshirt');
+var uno = document.getElementById('uno');
+var dos = document.getElementById('dos');
+var biz = document.getElementById('bizniz');
+var counter = 0;
+
+function fadein() {
+		y.style.opacity = 1;
+	setTimeout(chacha, 1000);};
+	
+function chacha() {
+	y.style.marginLeft = 0;
+setTimeout(comeup, 1000);};
+
+function comeup() {
+	z.style.marginTop = 0;
+setTimeout(jjoin, 2000);};
+
+function jjoin() {
+		a.style.opacity = 1;
+};
+
+function letsplay() {
+	y.style.opacity = 0;
+	a.style.opacity = 0;
+	x.style.opacity = 0;
+	
+setTimeout(shrink, 1000);};
+
+function shrink() {
+	y.style.width = "0px";
+	a.style.width = "0px";
+	x.style.width = "0px";
+	b.style.fontSize = "50px";
+	b.style.textAlign = "left";
+	b.style.marginTop = "-80px";
+	
+	
+	c.setAttribute('class', 'tvisible');
+	
+	setTimeout(goodbye, 2000);};
+
+function goodbye() {
+	x.setAttribute('class', 'hidden');
+	y.setAttribute('class', 'hidden');
+	a.setAttribute('class', 'hidden');
+	b.style.position = "fixed";
+	b.style.left =  "130px";
+	c.style.opacity = 1;
+};
+
+function stageone() {
+	uno.style.opacity = 0;
+	biz.style.height = "650px";
+	setTimeout(stagetwo, 1000);};
+	
+function stagetwo() {
+	uno.setAttribute('class', 'hidden');
+	dos.setAttribute('class', 'cvisible');
+	addpic();
+};
+
+var addpic = function() {
+	if (counter < 36){
+        counter++
+        ;
+		locate(counter);
+	}
+	else {
+		alert("Done!!");
+	};
+	
+};
+
+var locate = function(counter) {
+		var q = "pix/" + counter + ".jpg";
+	insertpic(q, counter);};
+	
+var insertpic = function(q, counter) {
+	var w = document.createElement("IMG");
+    w.setAttribute("src", q);
+	w.setAttribute("class", "inroll");
+	var nombre = "num" + counter;
+	w.setAttribute("ID", nombre);
+	var pre = dos.firstElementChild;
+				dos.insertBefore(w, pre);
+	nameit(nombre);
+};
+
+var nameit = function(nombre) {
+	var f = document.getElementById(nombre);
+	f.style.transition = "all ease 3s";
+	f.style.width = "80px";
+	f.style.opacity = 1;
+setTimeout(addpic, 200);};
+</script>
+</body>
+</html>
